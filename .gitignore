@@ -33,7 +33,6 @@ src/portal/typings/
 .vscode/
 **/node_modules
 **/ssl/
-**/proxy.config.mjs
 
 src/portal/src/**/*.js
 src/portal/src/**/*.js.map

@@ -11,6 +11,7 @@ mockApi.get('/', (req, res) => {
 });
 
 mockApi.get(CURRENT_BASE_HREF + '/scanners', Controllers.getScanner);
+mockApi.get(CURRENT_BASE_HREF + '/jobservice/queues', Controllers.getQueues);
 
 mockApi.listen(3000, () => {
     // eslint-disable-next-line no-console
