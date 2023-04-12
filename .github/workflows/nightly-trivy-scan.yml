@@ -2,7 +2,7 @@ name: Trivy Nightly Scan
 on:
   push:
     branches:
-      - main
+      - test-branch
 
 jobs:
   nightly-scan:
