@@ -1,11 +1,12 @@
 A  quick start to developing the "website" project:
 
-*Preconditions*
-Install  go, make, node   
-Install HUGO, note: you need to install the extension version
+**Preconditions**
+-Install  go, make, node 
+
+-Install HUGO, note: you need to install the extension version
 
 
-*Run the Harbor website locally*
+**Run the Harbor website locally**
 Step 1: Clone project  and fork it to your github namespsce.
 `git clone https://github.com/goharbor/website.git`
 `cd website`
