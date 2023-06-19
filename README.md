@@ -1,6 +1,6 @@
 # Roadmap and Goals
 1. Set up a Harbor
-- Status: pending support for linux OS
+- Status: pending windows computer
 - Use the [demo site](https://demo.goharbor.io) as the learning environment
 
 2. Study how to use Harbor
@@ -8,15 +8,19 @@
 
 3. Set up a Harbor Doc Website
 - Refer to [Setup_doc_website.md](Setup_doc_website.md)
+
 4. Contribute to Harbor Doc Website
 
 ## Questions
-- What are repository registry certificates?
-- When I pull images with docker, is it locally stored on my computer?
+- For robot accounts, what are access tokens? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/project-configuration/create-robot-accounts/#add-a-robot-account)
+- What are CVE ID's? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/project-configuration/configure-project-allowlist/)
+- What does preheating an image do? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/preheat-images/)
+- Where are OCI indexes located? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/deleting-artifact/)
+- What are image indexes? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/repositories/)
 
 ## Worklog
-See *Worklog.md*
-**Total time**: 6h (last updated 6/14)
+Refer to [Worklog.md](Worklog.md)
+**Total time**: 13h (last updated 6/18)
 
 # Resources
 ## Harbor Documentation
@@ -33,7 +37,7 @@ See *Worklog.md*
 | [add] | Moves changes to staging area to prepare for commit. |
 | [branch] | Create, list, rename, and delete branches. [More info.] |
 | [checkout] | Navigates between branches and remote branches. |
-| [remote] | Creates connection to other repositories. |
+| [remote] | Lists, adds, and removes connection to other repositories. |
 | [commit] | Commits staging area changes to project. |
 | [push] | Publishes edits to remote branch. |
 | [merge] | Integrates lines of development in current branch into another branch. |
