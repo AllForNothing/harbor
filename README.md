@@ -1,26 +1,19 @@
 # Roadmap and Goals
-1. Set up a Harbor
-- Status: pending windows computer
-- Use the [demo site](https://demo.goharbor.io) as the learning environment
-
+1. [x] Set up a Harbor
 2. Study how to use Harbor
-- Status: learning project configuration
+- Status: testing with own harbor
 
-3. Set up a Harbor Doc Website
-- Refer to [Setup_doc_website.md](Setup_doc_website.md)
-
+3. [x] Set up a Harbor Doc Website
 4. Contribute to Harbor Doc Website
+- Status: learning Harbor
 
 ## Questions
-- For robot accounts, what are access tokens? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/project-configuration/create-robot-accounts/#add-a-robot-account)
-- What are CVE ID's? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/project-configuration/configure-project-allowlist/)
-- What does preheating an image do? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/preheat-images/)
-- Where are OCI indexes located? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/deleting-artifact/)
-- What are image indexes? [Harbor Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/repositories/)
+- 
 
 ## Worklog
 Refer to [Worklog.md](Worklog.md)
-**Total time**: 13h (last updated 6/18)
+
+**Total time**: 29h (last updated 6/25)
 
 # Resources
 ## Harbor Documentation
