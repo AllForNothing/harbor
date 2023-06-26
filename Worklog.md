@@ -35,8 +35,33 @@ Time: 0h
 Time: 2h
 
 ## June 19-25
-**Total Time**: 
+**Total Time**: 16h
 
 ### June 19
-- 
-Time: 
+- study harbor documentation
+Time: 1h
+
+### June 20
+- study harbor documentation
+Time: 2h
+
+### June 21
+- setup new computer
+Time: 4h
+
+### June 22
+- setup new computer
+Time: 3h
+
+### June 23
+- took a break!
+Time: 0h
+
+### June 24
+- build harbor
+Time: 3h
+
+### June 25
+- build website
+Time: 3h
+
