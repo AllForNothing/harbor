@@ -3,7 +3,7 @@
 - [x] better understand git commands and github project management
 - [ ] study harbor documentation
 
-# Work Log
+# June
 ## June 12-18
 **Total time**: 13h
 
@@ -63,5 +63,12 @@ Time: 3h
 
 ### June 25
 - build website
+Time: 3h
+
+## June 26-30
+**Total Time**: 3h (last updated 6/26)
+
+### June 26
+- practice harbor usage with website
 Time: 3h
 
