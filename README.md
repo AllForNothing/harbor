@@ -11,7 +11,7 @@
 - Why doesn't my robot account show up in Robot Accounts in repository?
 - How do I automate processes with my robot account?
 - What are legacy robots? [Doc.](https://goharbor.io/docs/2.8.0/working-with-projects/project-configuration/create-robot-accounts/#legacy-robot-accounts)
-- 
+- What is the difference between pulling and replicating from a registry? Example: node.
 
 ## Worklog
 Refer to [Worklog.md](Worklog.md)

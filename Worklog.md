@@ -72,3 +72,7 @@ Time: 3h
 - practice harbor usage with website
 Time: 3h
 
+### June 26
+- practice harbor usage with website
+Time: 2h
+
