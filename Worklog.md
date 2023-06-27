@@ -66,7 +66,7 @@ Time: 3h
 Time: 3h
 
 ## June 26-30
-**Total Time**: 3h (last updated 6/26)
+**Total Time**: 5h (last updated 6/27)
 
 ### June 26
 - practice harbor usage with website
