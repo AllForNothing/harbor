@@ -66,7 +66,7 @@ Time: 3h
 Time: 3h
 
 ## June 26-30
-**Total Time**: 5h (last updated 6/27)
+**Total Time**: 10h (last updated 6/29)
 
 ### June 26
 - practice harbor usage with website
@@ -76,3 +76,15 @@ Time: 3h
 - practice harbor usage with website
 Time: 2h
 
+### June 27
+- practice harbor usage with website
+Time: 2h
+
+### June 28
+- practice harbor usage with website
+- look at current issues in github
+Time: 4h
+
+### June 29
+- practice harbor usage with website
+Time: 1h

@@ -33,4 +33,4 @@ weight: 5
 ## Registry Certificate
 - used to connect clients to registry
 - More info: https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-F98E7DAF-7AFF-4E3F-AB98-A026236CE5C8.html
-
+- requires ca.cert in /data/ca_download
