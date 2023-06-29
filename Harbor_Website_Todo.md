@@ -1,8 +1,12 @@
-## 
+## Registry Certificate
+- If there is no **Registry Certificate** button, copy your server certificate into the directory `/ca_download/` in your data directory and name it `ca.cert`.
+
+## Customize Banner Message
+- ?
 
 ## Tag Retention
 - https://github.com/goharbor/harbor/issues/18852
-- change to "You define tag retention rules on projects and can specify which repositories you want to apply it to."
+- You define tag retention rules on projects and can specify which repositories you want to apply it to.
 
 ## Notary
 - https://github.com/goharbor/harbor/issues/18631

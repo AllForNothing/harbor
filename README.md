@@ -8,7 +8,7 @@
 - Status: learning Harbor
 
 ## Questions
-- Does documentation intend to put examples for sections?
+- 
 
 ## Worklog
 Refer to [Worklog.md](Worklog.md)
