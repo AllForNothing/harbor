@@ -27,7 +27,7 @@ Time: 3h
 Time: 2h
 
 ### 6/17
-- took a break!
+- took a break
 Time: 0h
 
 ### 6/18
@@ -54,7 +54,7 @@ Time: 4h
 Time: 3h
 
 ### June 23
-- took a break!
+- took a break
 Time: 0h
 
 ### June 24
@@ -66,7 +66,7 @@ Time: 3h
 Time: 3h
 
 ## June 26-30
-**Total Time**: 10h (last updated 6/29)
+**Total Time**: 12h
 
 ### June 26
 - practice harbor usage with website
@@ -88,3 +88,19 @@ Time: 4h
 ### June 29
 - practice harbor usage with website
 Time: 1h
+
+### June 30
+- took a break
+Time: 0h
+
+# July
+## July 1-7
+**Total Time**: 4h (last updated 7/2)
+
+### July 1
+- update notary in doc
+Time: 2h
+
+## July 2
+- update registry certificate pr
+Time: 2h

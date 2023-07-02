@@ -13,7 +13,7 @@
 ## Worklog
 Refer to [Worklog.md](Worklog.md)
 
-**Total time**: 39h (last updated 6/29)
+**Total time**: 45h (last updated 7/2)
 
 # Resources
 ## Harbor Documentation
