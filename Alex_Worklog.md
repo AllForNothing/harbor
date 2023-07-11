@@ -127,7 +127,7 @@ Time: 2h
 Time: 0h
 
 ## July 8-14
-**Total Time**: 0h (last updated 7/9)
+**Total Time**: 4h (last updated 7/11)
 
 ### July 8
 - took a break
@@ -136,3 +136,11 @@ Time: 0h
 ### July 9
 - took a break
 Time: 0h
+
+### July 10
+- work on goweb project
+Time: 2h
+
+### July 11
+- work on github
+Time: 2h
