@@ -95,12 +95,52 @@ Time: 0h
 
 # July
 ## July 1-7
-**Total Time**: 4h (last updated 7/2)
+**Total Time**: 10h
 
 ### July 1
 - update notary in doc
 Time: 2h
 
-## July 2
+### July 2
 - update registry certificate pr
+Time: 2h
+
+### July 3
+- work on notary pr
+Time: 2h
+
+### July 4
+- took a break
+Time: 0h
+
+### July 5
+- notary pr
+Time: 2h
+
+### July 6
+- registry certificate pr
+- notary pr
+Time: 2h
+
+### July 7
+- took a break
+Time: 0h
+
+## July 8-14
+**Total Time**: 4h (last updated 7/11)
+
+### July 8
+- took a break
+Time: 0h
+
+### July 9
+- took a break
+Time: 0h
+
+### July 10
+- work on goweb project
+Time: 2h
+
+### July 11
+- work on github
 Time: 2h
