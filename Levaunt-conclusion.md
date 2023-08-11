@@ -32,7 +32,7 @@ Below are the commands to do each of these steps:
 `git rebase <origin>` updates your work the the latest changes from origin
 `git fetch <directory>` checks if the directory has had any changes
 `git remote` shows your current libraries (adding a -v at the end shows the link it is from)
-`git add` adds a library
+`git add` adds a file to the library
 `git checkout -b <directory>` lets you create and switch to a new branch
 `git touch <name>` creates a new file
 `git commit -m <message>` saves the changes and adds a message
