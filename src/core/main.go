@@ -27,6 +27,7 @@ import (
 	"time"
 
 	"github.com/beego/beego/v2/server/web"
+	"github.com/logrusorgru/aurora"
 
 	"github.com/goharbor/harbor/src/common/dao"
 	common_http "github.com/goharbor/harbor/src/common/http"
@@ -122,6 +123,8 @@ func gracefulShutdown(closing, done chan struct{}, shutdowns ...func()) {
 }
 
 func main() {
+	fmt.Println("Hello,", aurora.Magenta("Aurora"))
+	fmt.Println(aurora.Bold(aurora.Cyan("Cya!")))
 	runMode := flag.String("mode", "normal", "The harbor-core container run mode, it could be normal, migrate or skip-migrate, default is normal")
 	flag.Parse()
 

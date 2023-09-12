@@ -1,0 +1,27 @@
+name: CheckLicense
+
+on: [ push ]
+jobs:
+  license-check:
+    runs-on: ubuntu-latest
+    name: License Check
+    steps:
+      - name: Set up Go 1.16
+        uses: actions/setup-go@v4
+
+
+      - name: Get google/go-licenses package
+        run: go install github.com/google/go-licenses@latest
+        shell: bash
+      - uses: actions/checkout@v3
+        with:
+          path: src/github.com/goharbor/harbor
+      - run: |
+          pwd
+          cd src/github.com/goharbor/harbor/src
+          pwd
+          ls
+          bash ./../tests/ci/license-check.sh
+        shell: bash
+
+
