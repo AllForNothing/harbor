@@ -85,6 +85,7 @@ import { Tag } from '../../../../../../../../../ng-swagger-gen/models/tag';
 import { CopyArtifactComponent } from './copy-artifact/copy-artifact.component';
 import { CopyDigestComponent } from './copy-digest/copy-digest.component';
 import { Scanner } from '../../../../../../left-side-nav/interrogation-services/scanner/scanner';
+import { consolidateMessages } from '@angular/localize/tools/src/extract/translation_files/utils';
 
 export const AVAILABLE_TIME = '0001-01-01T00:00:00.000Z';
 
@@ -198,12 +199,16 @@ export class ArtifactListTabComponent implements OnInit, OnDestroy {
             false,
             false,
             false,
+            false,
         ]
     );
     deleteAccessorySub: Subscription;
     copyDigestSub: Subscription;
     @ViewChild('datagrid')
     datagrid;
+    modalOpen: boolean = false;
+    selectedEditArtifact: ArtifactFront;
+    editArtifact: any = { runtime_hook_points: [] };
     constructor(
         private errorHandlerService: ErrorHandler,
         private artifactService: ArtifactService,
@@ -1259,5 +1264,74 @@ export class ArtifactListTabComponent implements OnInit, OnDestroy {
     }
     isEllipsisActive(ele: HTMLSpanElement): boolean {
         return ele?.offsetWidth < ele?.scrollWidth;
+    }
+
+    saveEdit() {
+        this.modalOpen = false;
+        const arr = [];
+        this.editArtifact.runtime_hook_points?.forEach((item, index) => {
+            if (index === 0) {
+                if (item) {
+                    arr.push('before_pull');
+                }
+            }
+            if (index === 1) {
+                if (item) {
+                    arr.push('before_push');
+                }
+            }
+            if (index === 2) {
+                if (item) {
+                    arr.push('after_pull');
+                }
+            }
+            if (index === 3) {
+                if (item) {
+                    arr.push('after_pull');
+                }
+            }
+        });
+        this.newArtifactService
+            .updateArtifact({
+                projectName: this.projectName,
+                repositoryName: this.repoName,
+                reference: this.selectedEditArtifact.digest,
+                artifact: {
+                    runtime_hook: this.editArtifact.runtime_hook,
+                    runtime_hook_mode: this.editArtifact.runtime_hook_mode,
+                    runtime_hook_points: arr,
+                },
+            })
+            .subscribe({
+                next: res => this.refresh(),
+                error: err => this.errorHandlerService.error(err),
+            });
+    }
+
+    edit(a: ArtifactFront) {
+        this.modalOpen = true;
+        this.selectedEditArtifact = a;
+        this.editArtifact.runtime_hook = a.runtime_hook;
+        this.editArtifact.runtime_hook_mode = a.runtime_hook_mode;
+        a.runtime_hook_points?.forEach(item => {
+            this.editArtifact.runtime_hook_points = [
+                false,
+                false,
+                false,
+                false,
+            ];
+            if (item === 'before_pull') {
+                this.editArtifact.runtime_hook_points[0] = true;
+            }
+            if (item === 'before_push') {
+                this.editArtifact.runtime_hook_points[1] = true;
+            }
+            if (item === 'after_pull') {
+                this.editArtifact.runtime_hook_points[2] = true;
+            }
+            if (item === 'after_push') {
+                this.editArtifact.runtime_hook_points[3] = true;
+            }
+        });
     }
 }

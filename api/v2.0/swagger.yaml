@@ -1142,6 +1142,36 @@ paths:
           $ref: '#/responses/404'
         '500':
           $ref: '#/responses/500'
+    put:
+      summary: Update artifact
+      description: Update the artifact by reference
+      tags:
+        - artifact
+      operationId: updateArtifact
+      parameters:
+        - $ref: '#/parameters/requestId'
+        - $ref: '#/parameters/projectName'
+        - $ref: '#/parameters/repositoryName'
+        - $ref: '#/parameters/reference'
+        - name: artifact
+          in: body
+          description: The JSON object of repository.
+          required: true
+          schema:
+            $ref: '#/definitions/Artifact'
+      responses:
+        '200':
+          $ref: '#/responses/200'
+        '400':
+          $ref: '#/responses/400'
+        '401':
+          $ref: '#/responses/401'
+        '403':
+          $ref: '#/responses/403'
+        '404':
+          $ref: '#/responses/404'
+        '500':
+          $ref: '#/responses/500'
     delete:
       summary: Delete the specific artifact
       description: Delete the artifact specified by the reference under the project and repository. The reference can be digest or tag
@@ -1193,7 +1223,7 @@ paths:
         '404':
           $ref: '#/responses/404'
         '422':
-          $ref: '#/responses/422'  
+          $ref: '#/responses/422'
         '500':
           $ref: '#/responses/500'
   /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/scan/stop:
@@ -1226,7 +1256,7 @@ paths:
         '404':
           $ref: '#/responses/404'
         '422':
-          $ref: '#/responses/422'  
+          $ref: '#/responses/422'
         '500':
           $ref: '#/responses/500'
   /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/scan/{report_id}/log:
@@ -1546,88 +1576,6 @@ paths:
           $ref: '#/responses/404'
         '409':
           $ref: '#/responses/409'
-        '500':
-          $ref: '#/responses/500'
-  /projects/{project_name_or_id}/artifacts:
-    get:
-      summary: List artifacts
-      description: List artifacts of the specified project
-      tags:
-        - project
-      operationId: listArtifactsOfProject
-      parameters:
-        - $ref: '#/parameters/requestId'
-        - $ref: '#/parameters/isResourceName'
-        - $ref: '#/parameters/projectNameOrId'
-        - $ref: '#/parameters/query'
-        - $ref: '#/parameters/sort'
-        - $ref: '#/parameters/page'
-        - $ref: '#/parameters/pageSize'
-        - $ref: '#/parameters/acceptVulnerabilities'
-        - name: with_tag
-          in: query
-          description: Specify whether the tags are included inside the returning artifacts
-          type: boolean
-          required: false
-          default: true
-        - name: with_label
-          in: query
-          description: Specify whether the labels are included inside the returning artifacts
-          type: boolean
-          required: false
-          default: false
-        - name: with_scan_overview
-          in: query
-          description: Specify whether the scan overview is included inside the returning artifacts
-          type: boolean
-          required: false
-          default: false
-        - name: with_sbom_overview
-          in: query
-          description: Specify whether the SBOM overview is included in returning artifacts, when this option is true, the SBOM overview will be included in the response
-          type: boolean
-          required: false
-          default: false
-        - name: with_immutable_status
-          in: query
-          description: Specify whether the immutable status is included inside the tags of the returning artifacts. Only works when setting "with_immutable_status=true"
-          type: boolean
-          required: false
-          default: false
-        - name: with_accessory
-          in: query
-          description: Specify whether the accessories are included of the returning artifacts. Only works when setting "with_accessory=true"
-          type: boolean
-          required: false
-          default: false
-        - name: latest_in_repository
-          in: query
-          description: Specify whether only the latest pushed artifact of each repository is included inside the returning artifacts. Only works when either artifact_type or media_type is included in the query.
-          type: boolean
-          required: false
-          default: false
-      responses:
-        '200':
-          description: Success
-          headers:
-            X-Total-Count:
-              description: The total count of artifacts
-              type: integer
-            Link:
-              description: Link refers to the previous page and next page
-              type: string
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Artifact'
-        '400':
-          $ref: '#/responses/400'
-        '401':
-          $ref: '#/responses/401'
-        '403':
-          $ref: '#/responses/403'
-        '404':
-          $ref: '#/responses/404'
         '500':
           $ref: '#/responses/500'
   '/projects/{project_name_or_id}/scanner':
@@ -4874,7 +4822,7 @@ paths:
           schema:
             type: array
             items:
-             $ref: '#/definitions/JobQueue'
+              $ref: '#/definitions/JobQueue'
         '401':
           $ref: '#/responses/401'
         '403':
@@ -5769,7 +5717,7 @@ paths:
     put:
       summary: Update a registered user to change to be an administrator of Harbor.
       tags:
-       - user
+        - user
       operationId: setUserSysAdmin
       parameters:
         - $ref: '#/parameters/requestId'
@@ -6553,7 +6501,7 @@ responses:
         description: The ID of the corresponding request for the response
         type: string
     schema:
-      $ref: '#/definitions/Errors'    
+      $ref: '#/definitions/Errors'
   '500':
     description: Internal server error
     headers:
@@ -6668,9 +6616,6 @@ definitions:
       manifest_media_type:
         type: string
         description: The manifest media type of the artifact
-      artifact_type:
-        type: string
-        description: The artifact_type in the manifest of the artifact
       project_id:
         type: integer
         format: int64
@@ -6679,9 +6624,6 @@ definitions:
         type: integer
         format: int64
         description: The ID of the repository that the artifact belongs to
-      repository_name:
-        type: string
-        description: The name of the repository that the artifact belongs to
       digest:
         type: string
         description: The digest of the artifact
@@ -6729,6 +6671,25 @@ definitions:
         items:
           $ref: '#/definitions/Accessory'
           description: The accessory of the artifact.
+      runtime_hook:
+        type: boolean
+        description: Whether enable the runtime hook
+      runtime_hook_mode:
+        type: string
+        enum:
+          - pass_through
+          - block
+        description: The mode of the runtime hook
+      runtime_hook_points:
+        type: array
+        description: The injection points for runtime hook
+        items:
+          type: string
+          enum:
+            - before_pull
+            - before_push
+            - after_pull
+            - after_push
   Tag:
     type: object
     properties:
@@ -7340,10 +7301,6 @@ definitions:
         type: string
         description: 'The ID of the tag retention policy for the project'
         x-nullable: true
-      proxy_speed_kb:
-        type: string
-        description: 'The bandwidth limit of proxy cache, in Kbps (kilobits per second). It limits the communication between Harbor and the upstream registry, not the client and the Harbor.'
-        x-nullable: true
   ProjectSummary:
     type: object
     properties:
@@ -7928,7 +7885,7 @@ definitions:
     properties:
       resource:
         type: string
-        description: The resource of the access. Possible resources are listed here for system and project level https://github.com/goharbor/harbor/blob/main/src/common/rbac/const.go 
+        description: The resource of the access. Possible resources are listed here for system and project level https://github.com/goharbor/harbor/blob/main/src/common/rbac/const.go
       action:
         type: string
         description: The action of the access. Possible actions are *, pull, push, create, read, update, delete, list, operate, scanner-pull and stop.
@@ -8989,9 +8946,6 @@ definitions:
       ldap_group_search_scope:
         $ref: '#/definitions/IntegerConfigItem'
         description: The scope to search ldap group. ''0-LDAP_SCOPE_BASE, 1-LDAP_SCOPE_ONELEVEL, 2-LDAP_SCOPE_SUBTREE''
-      ldap_group_attach_parallel:
-        $ref: '#/definitions/BoolConfigItem'
-        description: Attach LDAP user group information in parallel.
       ldap_scope:
         $ref: '#/definitions/IntegerConfigItem'
         description: The scope to search ldap users,'0-LDAP_SCOPE_BASE, 1-LDAP_SCOPE_ONELEVEL, 2-LDAP_SCOPE_SUBTREE'
@@ -9180,11 +9134,6 @@ definitions:
       ldap_group_search_scope:
         type: integer
         description: The scope to search ldap group. ''0-LDAP_SCOPE_BASE, 1-LDAP_SCOPE_ONELEVEL, 2-LDAP_SCOPE_SUBTREE''
-        x-omitempty: true
-        x-isnullable: true
-      ldap_group_attach_parallel:
-        type: boolean
-        description: Attach LDAP user group information in parallel, the parallel worker count is 5
         x-omitempty: true
         x-isnullable: true
       ldap_scope:

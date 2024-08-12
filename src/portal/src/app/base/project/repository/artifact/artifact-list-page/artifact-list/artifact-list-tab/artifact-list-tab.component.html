@@ -242,8 +242,14 @@
                     {{ 'REPOSITORY.LABELS' | translate }}
                 </ng-template>
             </clr-dg-column>
-            <clr-dg-column [clrDgSortBy]="pushComparator">
+            <clr-dg-column>
                 <ng-template [clrDgHideableColumn]="{ hidden: hiddenArray[9] }">
+                    Run Time Hook
+                </ng-template>
+            </clr-dg-column>
+            <clr-dg-column [clrDgSortBy]="pushComparator">
+                <ng-template
+                    [clrDgHideableColumn]="{ hidden: hiddenArray[10] }">
                     {{ 'REPOSITORY.PUSH_TIME' | translate }}
                 </ng-template>
             </clr-dg-column>
@@ -519,6 +525,13 @@
                     </div>
                 </clr-dg-cell>
                 <clr-dg-cell>
+                    <span class="mr-1">{{ artifact.runtime_hook }}</span
+                    >|
+                    <button class="btn btn-link" (click)="edit(artifact)">
+                        Edit
+                    </button>
+                </clr-dg-cell>
+                <clr-dg-cell>
                     <div class="cell">
                         <hbr-label-piece
                             *ngIf="artifact.labels?.length"
@@ -603,3 +616,92 @@
         </clr-datagrid>
     </div>
 </div>
+
+<clr-modal [(clrModalOpen)]="modalOpen">
+    <h3 class="modal-title">Edit run time hook</h3>
+    <div class="modal-body">
+        <clr-checkbox-container clrInline>
+            <label>Enable run time hook</label>
+            <clr-checkbox-wrapper>
+                <input
+                    type="checkbox"
+                    clrCheckbox
+                    name="runtime_hook"
+                    [(ngModel)]="editArtifact.runtime_hook" />
+            </clr-checkbox-wrapper>
+        </clr-checkbox-container>
+        <clr-radio-container clrInline>
+            <label>Inline radio example</label>
+            <clr-radio-wrapper>
+                <input
+                    type="radio"
+                    clrRadio
+                    name="options"
+                    required
+                    value="block"
+                    [(ngModel)]="editArtifact.runtime_hook_mode" />
+                <label>Block</label>
+            </clr-radio-wrapper>
+            <clr-radio-wrapper>
+                <input
+                    type="radio"
+                    clrRadio
+                    name="options"
+                    required
+                    value="pass_through"
+                    [(ngModel)]="editArtifact.runtime_hook_mode" />
+                <label>Pass through</label>
+            </clr-radio-wrapper>
+        </clr-radio-container>
+        <clr-checkbox-container clrInline>
+            <label>Run time hook points</label>
+            <clr-checkbox-wrapper>
+                <input
+                    type="checkbox"
+                    clrCheckbox
+                    name="before_pull"
+                    value="before_pull"
+                    [(ngModel)]="editArtifact.runtime_hook_points[0]" />
+                <label>Before pull</label>
+            </clr-checkbox-wrapper>
+            <clr-checkbox-wrapper>
+                <input
+                    type="checkbox"
+                    clrCheckbox
+                    name="before_push"
+                    value="before_push"
+                    [(ngModel)]="editArtifact.runtime_hook_points[1]" />
+                <label>Before push</label>
+            </clr-checkbox-wrapper>
+            <clr-checkbox-wrapper>
+                <input
+                    type="checkbox"
+                    clrCheckbox
+                    name="after_pull"
+                    value="after_pull"
+                    [(ngModel)]="editArtifact.runtime_hook_points[2]" />
+                <label>After pull</label>
+            </clr-checkbox-wrapper>
+            <clr-checkbox-wrapper>
+                <input
+                    type="checkbox"
+                    clrCheckbox
+                    name="after_push"
+                    value="after_push"
+                    [(ngModel)]="editArtifact.runtime_hook_points[3]" />
+                <label>After push</label>
+            </clr-checkbox-wrapper>
+        </clr-checkbox-container>
+    </div>
+    <div class="modal-footer">
+        <button
+            type="button"
+            class="btn btn-outline"
+            (click)="modalOpen = false">
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" (click)="saveEdit()">
+            Ok
+        </button>
+    </div>
+</clr-modal>
